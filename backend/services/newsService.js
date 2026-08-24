@@ -21,5 +21,5 @@ export const fetchNews = async (query) => {
         publishedAt: article.publishedAt
     }));
 
-    return data.articles;
+    return articles;
 };
