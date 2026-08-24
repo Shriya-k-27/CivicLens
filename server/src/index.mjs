@@ -1,6 +1,8 @@
 import express from 'express'
 import dotenv from 'dotenv'
 import cors from 'cors'
+import connectDB from "./db.mjs";
+import User from "./models/User.mjs";
 
 dotenv.config();
 
@@ -23,6 +25,13 @@ app.get('/api/health',(req,res)=>{
     })
 })
 
+// app.get('/createuser', async (req,res)=>{
+//     let createdUser= await User.create({
+//         profile:"abcdef", role: "user", password:"abc@123", progress: "beginner"
+//     })
+//     res.status(201).json(createdUser);
+// })
+
 app.all('/*splat',(req,res)=>{
     res.status(404).json({
         message: "Route not found!",
@@ -32,10 +41,24 @@ app.all('/*splat',(req,res)=>{
 })
 
 
-const server= app.listen(PORT,()=>{
-    console.log(`server listening on port ${PORT}`);
-})
+// const server= app.listen(PORT,()=>{
+//     console.log(`server listening on port ${PORT}`);
+// })
 
-server.on('error',(err)=>{
-    console.log(err);
-})
+// server.on('error',(err)=>{
+//     console.log(err);
+// })
+
+const startServer = async () => {
+  await connectDB();
+
+  const server = app.listen(PORT, () => {
+    console.log(`CivicLens Server listening on port ${PORT}`);
+  });
+
+  server.on("error", (err) => {
+    console.error(err);
+  });
+};
+
+startServer();
