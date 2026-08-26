@@ -76,25 +76,70 @@ authRouter.post('/login',async (req,res)=>{
         }
         
         //create JWT
-        const token=jwt.sign(
+        const accessToken=jwt.sign(
             {userId: user._id,
             role: user.role},process.env.JWT_SECRET,
             {expiresIn: "15m"}
         )
+
+        const refreshToken=jwt.sign(
+            {userId: user._id,
+            role: user.role},process.env.JWT_REFRESH_SECRET,
+            {expiresIn: "7d"}
+        )
+
+        res.cookie("refreshToken",refreshToken,{
+            httpOnly:true,
+            secure: process.env.NODE_ENV ==='production',
+            sameSite: 'lax',
+            maxAge: 7*24*60*60*1000
+        })
 
         const userResponse=user.toObject();
         delete userResponse.passwordHash;
 
         return res.status(200).json({
             message:"Login successful",
-            token,
+            accessToken,
             user:userResponse
         })
+
     }catch(err){
         console.log("Login error: ",err);
         
         return res.status(500).json({
             message:"Internal server error"
+        })
+    }
+})
+
+authRouter.post('/refresh',async(req,res)=>{
+    try{
+
+        const refreshToken=req.cookies.refreshToken;
+
+        if(!refreshToken){
+            return res.status(401).json({
+                message: "Refresh token missing!"
+            })
+        }
+
+        const decoded=jwt.verify(refreshToken,process.env.JWT_REFRESH_SECRET)
+
+        const accessToken=jwt.sign(
+            {userId:decoded.userId,role:decoded.role},
+            process.env.JWT_SECRET,
+            {expiresIn: "15m"}
+        )
+
+        return res.status(200).json({
+            accessToken
+        })
+
+    }catch(err){
+
+        return res.status(403).json({
+            message: "Invalid or expired refresh token"
         })
     }
 })
