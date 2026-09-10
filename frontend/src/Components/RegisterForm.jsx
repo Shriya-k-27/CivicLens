@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import axios from 'axios'
+import api from '../api/axios'
 
 function RegisterForm() {
 
@@ -10,13 +10,17 @@ function RegisterForm() {
         e.preventDefault();
 
         try{
-            const response=await axios.post(
-                "http://localhost:5000/api/auth/register",
-                {email,password}
-            )
+            // const response=await axios.post(
+            //     "http://localhost:5000/api/auth/register",
+            //     {email,password}
+            // )
+            const response= await api.post('/auth/register',{email,password})
             console.log(response.data);
         }catch(err){
-            console.log(err.response?.data || err.message);
+            //console.log(err.response?.data || err.message);
+            console.log("STATUS:", err.response?.status);
+            console.log("DATA:", err.response?.data);
+            console.log("MESSAGE:", err.message);
         }
     }
   return (

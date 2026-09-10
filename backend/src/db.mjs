@@ -1,17 +1,18 @@
-import mongoose from 'mongoose'
+import mongoose from 'mongoose';
+import dns from 'dns';
 
-// const uri=process.env.MONGO_URI
-// export default mongoose.connect(uri)
+dns.setServers(['8.8.8.8', '8.8.4.4']);
 
 const connectDB = async () => {
   try {
-    await mongoose.connect(process.env.MONGO_URI)
+    await mongoose.connect(process.env.MONGO_URI, {
+      dbName: 'civiclens'
+    });
 
-    console.log("MongoDB Atlas connected successfully");
+    console.log('MongoDB Atlas connected successfully');
   } catch (error) {
-    console.error("MongoDB connection failed:", error.message);
+    console.error('MongoDB connection failed:', error.message);
     process.exit(1);
-
   }
 };
 

@@ -144,6 +144,8 @@ authRouter.post('/refresh',async(req,res)=>{
     }
 })
 
+//GAP: logout not built
+
 authRouter.get("/me", protect, (req, res) => {
   return res.status(200).json({
     user: req.user,
