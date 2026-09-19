@@ -2,10 +2,6 @@ function CivicUpdateCard({ update }) {
     return (
         <article className="update-card">
 
-            <div className="update-category">
-                {update.category}
-            </div>
-
             <h3>{update.title}</h3>
 
             <p className="update-description">
@@ -30,7 +26,7 @@ function CivicUpdateCard({ update }) {
                 rel="noopener noreferrer"
                 className="read-more"
             >
-                Read article →
+                Read article
             </a>
 
         </article>

@@ -68,24 +68,3 @@ export const getCivicUpdates = async (req, res) => {
     }
 };
 
-export const getCivicUpdateById = async (req, res) => {
-    try {
-        const { id } = req.params;
-
-        const civicUpdate = await CivicUpdate.findById(id);
-
-        if (!civicUpdate) {
-            return res.status(404).json({
-                message: "Civic update not found"
-            });
-        }
-
-        res.status(200).json(civicUpdate);
-
-    } catch (error) {
-        res.status(500).json({
-            message: "Failed to fetch civic update",
-            error: error.message
-        });
-    }
-};

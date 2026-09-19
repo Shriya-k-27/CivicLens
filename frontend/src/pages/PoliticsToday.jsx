@@ -3,11 +3,13 @@ import CivicUpdateCard from "../components/CivicUpdateCard";
 
 function PoliticsToday() {
     const [updates, setUpdates] = useState([]);
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(null);
+    const [page, setPage] = useState(1);
+    const [pagination, setPagination] = useState(null);
 
     useEffect(() => {
-        fetch("http://localhost:5000/api/civic-updates")
+        fetch(
+            `http://localhost:5000/api/civic-updates?page=${page}&limit=10`
+        )
             .then((response) => {
                 if (!response.ok) {
                     throw new Error(`HTTP error: ${response.status}`);
@@ -17,67 +19,35 @@ function PoliticsToday() {
             })
             .then((data) => {
                 console.log("DATA:", data);
+
                 setUpdates(data.data);
+                setPagination(data.pagination);
             })
             .catch((error) => {
                 console.error("Failed to fetch updates:", error);
-                setError(error.message);
-            })
-            .finally(() => {
-                setLoading(false);
             });
-    }, []);
-
-    if (loading) {
-        return <p>Loading civic updates...</p>;
-    }
-
-    if (error) {
-        return <p>Failed to load updates: {error}</p>;
-    }
+    }, [page]);
 
     return (
-    <main className="politics-page">
+        <main className="politics-page">
 
-        <section className="politics-hero">
-            <div className="hero-content">
-                <p className="eyebrow">CIVICLENS</p>
 
-                <h1>Politics Today</h1>
+            <section className="updates-section">
 
-                <p>
-                    Stay informed about the latest political and
-                    civic developments.
-                </p>
-            </div>
-        </section>
+                <div className="section-header">
+                    <div>
+                        <p className="section-label">
+                            LATEST UPDATES
+                        </p>
 
-        <section className="updates-section">
+                        <h2>Civic & Political News</h2>
+                    </div>
 
-            <div className="section-header">
-                <div>
-                    <p className="section-label">LATEST UPDATES</p>
-                    <h2>Civic & Political News</h2>
+                    <span>
+                        {pagination?.totalItems ?? 0} updates
+                    </span>
                 </div>
 
-                <span>
-                    {updates.length} updates
-                </span>
-            </div>
-
-            {loading && (
-                <p className="status-message">
-                    Loading civic updates...
-                </p>
-            )}
-
-            {error && (
-                <p className="status-message error">
-                    Failed to load updates: {error}
-                </p>
-            )}
-
-            {!loading && !error && (
                 <div className="updates-grid">
                     {updates.map((update) => (
                         <CivicUpdateCard
@@ -86,12 +56,36 @@ function PoliticsToday() {
                         />
                     ))}
                 </div>
-            )}
 
-        </section>
+                <div className="pagination">
 
-    </main>
-);
+                    <button
+                        disabled={page === 1}
+                        onClick={() => setPage(page - 1)}
+                    >
+                        ← Previous
+                    </button>
+
+                    <span>
+                        Page {page} of {pagination?.totalPages ?? 1}
+                    </span>
+
+                    <button
+                        disabled={
+                            !pagination ||
+                            page >= pagination.totalPages
+                        }
+                        onClick={() => setPage(page + 1)}
+                    >
+                        Next →
+                    </button>
+
+                </div>
+
+            </section>
+
+        </main>
+    );
 }
 
 export default PoliticsToday;

@@ -9,7 +9,7 @@ function Navbar(){
                 <div className="links">
                     <ul className="ul-links">
                         <li><a href="#">Home</a></li>
-                        <li><a href="#">Politics Today</a></li>
+                        <li><a href="#">Civic Updates</a></li>
                         <li><a href="#">Know Your Leaders</a></li>
                         <li><a href="#">Civic Academy</a></li>
                     </ul>
