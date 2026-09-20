@@ -301,9 +301,8 @@
     background-color: #e5e7eb;
 }
 
-.civic:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+.description h1 {
+    margin-bottom: 25px;
 }
 
 .footer{

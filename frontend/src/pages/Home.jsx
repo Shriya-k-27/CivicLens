@@ -6,7 +6,6 @@ function Home() {
 
             <div className="description">
                 <h1>Welcome to CivicLens</h1>
-                <br></br><br></br>
                 <p>
                     CivicLens is an interactive platform designed to make
                     Indian civics and governance easier to understand and
@@ -14,7 +13,7 @@ function Home() {
                     elections, and other important aspects of Indian democracy
                     through simple, structured lessons. Stay informed about
                     recent governance and political developments, and explore
-                    profiles of India’s public representatives. CivicLens
+                    profiles of India’s Union Ministers. CivicLens
                     brings learning, awareness, and participation together in
                     one place, helping users become more informed and engaged
                     citizens.

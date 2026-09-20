@@ -2,6 +2,7 @@ import express from "express";
 import civicUpdateRoutes from "./routes/civicUpdateRoutes.js";
 import newsRoutes from "./routes/newsRoutes.js";
 import cors from "cors";
+import leaderRoutes from "./routes/leaderRoutes.js"
 
 const app = express();
 
@@ -16,5 +17,7 @@ app.get("/", (req, res) => {
 });
 
 app.use("/api/civic-updates", civicUpdateRoutes);
+
+app.use("/api/leaders", leaderRoutes);
 
 export default app;
