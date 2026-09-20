@@ -6,6 +6,10 @@
     z-index: 100;
 }
 
+.profile-icon{
+    height:25px;
+}
+
 .container{
   margin: 0 auto;
   padding: 18px 24px;
@@ -233,4 +237,157 @@
 .pagination span {
     font-size: 14px;
     color: #4b5563;
+}
+
+/* HOME PAGE */
+
+.home-page{
+    padding:20px;
+    margin: 20px;
+}
+
+.description{
+    text-align: center;
+    padding:50px;
+}
+.description p{
+    padding:0 100px;
+}
+
+.modules {
+    display: flex;
+    align-items: stretch;
+    justify-content: space-between;
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.civic {
+    flex: 1;
+    min-height: 320px;
+    padding: 50px 40px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    background-color: #d1d5db;
+
+    text-align: center;
+    text-decoration: none;
+    color: #111827;
+
+    border-radius: 12px;
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        background-color 0.2s ease;
+}
+
+.civic h2 {
+    margin-bottom: 20px;
+}
+
+.civic p {
+    line-height: 1.6;
+    color: #4b5563;
+}
+
+.civic:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+    background-color: #e5e7eb;
+}
+
+.civic:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+}
+
+.footer{
+    margin-top:80px;
+}
+
+
+/* FOOTER JHOME.JSX*/
+
+.footer {
+    margin-top: 80px;
+    padding: 45px 20px 25px;
+    border-top: 1px solid #d1d5db;
+    text-align: center;
+}
+
+/* Learn • Stay Updated • Engage */
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 14px;
+
+    font-size: 16px;
+    font-weight: 500;
+    color: #374151;
+}
+
+
+/* Sources section */
+
+.sources {
+    margin-top: 35px;
+}
+
+.sources h3 {
+    margin-bottom: 15px;
+
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+
+    color: #6b7280;
+}
+
+
+/* Source 1 • Source 2 • Source 3 */
+
+.source-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 24px;
+}
+
+.source-links a {
+    color: #4b5563;
+    text-decoration: none;
+    font-size: 14px;
+
+    transition:
+        color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.source-links a:hover {
+    color: #2563eb;
+}
+
+
+/* Bottom copyright */
+
+.footer-bottom {
+    margin-top: 35px;
+    padding-top: 20px;
+
+    border-top: 1px solid #e5e7eb;
+}
+
+.footer-bottom p {
+    margin: 0;
+
+    font-size: 12px;
+    color: #9ca3af;
 }

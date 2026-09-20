@@ -27,5 +27,6 @@ const civicUpdateSchema=new mongoose.Schema({
     timestamps:true
 })
 
+
 const CivicUpdate = mongoose.model("CivicUpdate", civicUpdateSchema);
 export default CivicUpdate;
