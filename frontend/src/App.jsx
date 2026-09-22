@@ -3,7 +3,7 @@ import Home from './pages/Home.jsx';
 import PoliticsToday from './pages/PoliticsToday.jsx';
 import Navbar from './components/Navbar.jsx';
 import "./App.css";
-
+import KnowYourLeaders from './pages/KnowYourLeaders.jsx';
 function App(){
     return(
         <BrowserRouter>
@@ -11,6 +11,7 @@ function App(){
         <Routes>
             <Route path='/' element={<Home />}/>
             <Route path='/civic-updates' element={<PoliticsToday />}/>
+            <Route path='/leaders' element={<KnowYourLeaders/>}/>
         </Routes>
         </BrowserRouter>
     );

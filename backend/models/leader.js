@@ -9,7 +9,6 @@ const leaderSchema = new mongoose.Schema(
         },
         photo:{
             type: String,
-            requires:true,
         },
         category:{
             type:String,
