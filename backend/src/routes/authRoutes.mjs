@@ -144,7 +144,14 @@ authRouter.post('/refresh',async(req,res)=>{
     }
 })
 
-//GAP: logout not built
+authRouter.post('/logout',(req,res)=>{
+    res.clearCookie('refreshToken',
+        {httpOnly:true,
+            secure: process.env.NODE_ENV==='production',
+            sameSite:'lax'}
+    )
+    return res.status(200).json({message:"logged out successfully"})
+})
 
 authRouter.get("/me", protect, (req, res) => {
   return res.status(200).json({

@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 
 function LoginForm() {
@@ -7,7 +8,7 @@ function LoginForm() {
     const [password, setPassword] = useState("");
 
     const {login}=useAuth();
-
+    const navigate=useNavigate();
     const handleSubmit=async(e)=>{
         e.preventDefault();
 
@@ -18,7 +19,8 @@ function LoginForm() {
             // )
             const user=await login(email,password)
             console.log(user);
-            console.log("Login successful!");
+            console.log("Login successful!")
+            navigate('/dashboard')
             
         }catch(err){
             console.log(err.response?.data || err.message);
