@@ -9,9 +9,6 @@ router.get("/", async (req, res) => {
 
         const filter = {};
 
-        const page = Number(req.query.page) || 1;
-        const limit = Number(req.query.limit) || 10;
-
         if (search) {
             filter.name = {
                 $regex: search,
@@ -39,21 +36,12 @@ router.get("/", async (req, res) => {
             };
         }
 
-        const skip=(page-1)*limit;
         const leaders = await Leader.find(filter)
             .sort({ name: 1 })
-            .skip(skip)
-            .limit(Number(limit));
-
-        const totalLeaders = await Leader.countDocuments(filter);
-        const totalPages = Math.ceil(totalLeaders / limit);
 
         res.json({
             success: true,
             count: leaders.length,
-            totalLeaders,
-            totalPages,
-            currentPage: Number(page),
             leaders
         });
 
@@ -66,6 +54,38 @@ router.get("/", async (req, res) => {
         res.status(500).json({
             success: false,
             message: "Failed to fetch leaders"
+        });
+    }
+});
+
+router.get("/:id", async (req, res) => {
+
+    try {
+
+        const leader = await Leader.findById(req.params.id);
+
+        if (!leader) {
+            return res.status(404).json({
+                success: false,
+                message: "Leader not found"
+            });
+        }
+
+        res.json({
+            success: true,
+            leader
+        });
+
+    } catch (error) {
+
+        console.error(
+            "Error fetching leader:",
+            error.message
+        );
+
+        res.status(500).json({
+            success: false,
+            message: "Failed to fetch leader"
         });
     }
 });

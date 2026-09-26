@@ -4,7 +4,7 @@ import Leader from "./models/leader.js";
 const leaders = [
     {
         name: "Shri Raj Nath Singh",
-        photo: "",
+        photo: "/images/leaders/rajnath.jpg",
         category: "Cabinet Minister",
         designation: ["Minister of Defence"],
         party: "Bharatiya Janata Party",
@@ -53,7 +53,7 @@ const leaders = [
 
     {
         name: "Shri Amit Shah",
-        photo: "",
+        photo: "/images/leaders/amit_shah.avif",
         category: "Cabinet Minister",
         designation: [
             "Minister of Home Affairs",
@@ -98,7 +98,7 @@ const leaders = [
 
     {
         name: "Shri Nitin Jairam Gadkari",
-        photo: "",
+        photo: "/images/leaders/gadkari.jpg",
         category: "Cabinet Minister",
         designation: ["Minister of Road Transport and Highways"],
         party: "Bharatiya Janata Party",
@@ -142,7 +142,7 @@ const leaders = [
     
     {
         name: "Shri Jagat Praksh Nadda",
-        photo: "",
+        photo: "/images/leaders/nadda.jpg",
         category: "Cabinet Minister",
         designation:[
             "Leader of the house in Rajya Sabha",
@@ -199,7 +199,7 @@ const leaders = [
     
     {
         name: "Shri Shivraj Singh Chouhan",
-        photo: "",
+        photo: "/images/leaders/shivraj.jpg",
         category: "Cabinet Minister",
         designation: [
             "Minister of Agriculture and Farmers Welfare",
@@ -281,7 +281,7 @@ const leaders = [
     },
     {
         name:"Smt. Nirmala Sitharaman",
-        photo: "",
+        photo: "/images/leaders/nirmala.jpg",
         category: "Cabinet Minister",
         designation:[
             "Ministery of Finance",
@@ -338,7 +338,7 @@ const leaders = [
     },
     {
         name: "Dr. Subrahmanyam Jaishankar",
-        photo: "",
+        photo: "/images/leaders/jaishankar.jpg",
         category: "Cabinet Minister",
         designation: [
             "Minister of External Affairs"
@@ -409,7 +409,7 @@ const leaders = [
     },
     {
         name: "Shri Manohar Lal",
-        photo: "",
+        photo: "/images/leaders/manohar.jpg",
         category: "Cabinet Minister",
         designation: [
             "Minister of Housing and Urban Affairs",
@@ -470,7 +470,7 @@ const leaders = [
     },
     {
         name: "Shri H.D. Kumaraswamy",
-        photo: "",
+        photo: "/images/leaders/kumarswamy.jpg",
         category: "Cabinet Minister",
         designation: [
             "Minister of Heavy Industries",
@@ -532,7 +532,7 @@ const leaders = [
     },
     {
         name: "Shri Piyush Goyal",
-        photo: "",
+        photo: "/images/leaders/piyush.jpg",
         category: "Cabinet Minister",
         designation: [
             "Minister of Commerce and Industry"

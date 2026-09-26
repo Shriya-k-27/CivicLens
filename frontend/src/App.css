@@ -390,3 +390,426 @@
     font-size: 12px;
     color: #9ca3af;
 }
+
+/* Know your Leaders: */
+
+.leaders-page {
+    padding: 40px;
+}
+
+.leaders-page h1 {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.leaders-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.leader-card {
+    padding: 25px;
+    background-color: #f3f4f6;
+    border-radius: 12px;
+    border: 1px solid #e5e7eb;
+}
+
+.leader-card h2 {
+    margin-bottom: 15px;
+}
+
+.leader-card p {
+    margin: 8px 0;
+    color: #4b5563;
+}
+
+.leader-filters {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 35px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.leader-filters input,
+.leader-filters select {
+    padding: 10px 12px;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    font-size: 14px;
+}
+
+.leader-filters button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    background-color: #4B6587;
+    color: white;
+    cursor: pointer;
+}
+
+.leader-filters button:hover {
+    opacity: 0.9;
+}
+
+.leader-card {
+    background-color: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    overflow: hidden;
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+
+.leader-photo {
+    width: 100%;
+    height: 400px;
+    background-color: #e5e7eb;
+}
+
+.leader-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.photo-placeholder {
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: #6b7280;
+}
+
+.leader-info {
+    padding: 20px;
+}
+
+.leader-info h2 {
+    margin-bottom: 10px;
+}
+
+.leader-designation {
+    color: #4B6587;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.leader-info p {
+    margin: 8px 0;
+}
+
+.responsibilities {
+    margin-top: 18px;
+}
+
+.responsibilities ul {
+    padding-left: 20px;
+}
+
+.responsibilities li {
+    margin: 6px 0;
+    color: #4b5563;
+}
+
+.view-profile {
+    display: inline-block;
+
+    margin-top: 15px;
+    padding: 10px 16px;
+
+    background-color: #4B6587;
+    color: white;
+
+    text-decoration: none;
+    border-radius: 6px;
+}
+
+.view-profile:hover {
+    opacity: 0.9;
+}
+
+
+
+
+
+
+
+
+
+
+
+/* .leader-details {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 45px 30px 70px;
+} */
+
+/* Back button */
+
+/* .back-link {
+    display: inline-block;
+    margin-bottom: 30px;
+
+    color: #4B6587;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 500;
+} */
+
+/* .back-link:hover {
+    text-decoration: underline;
+} */
+
+
+/* Main profile section */
+
+/* .leader-profile {
+    display: flex;
+    gap: 45px;
+
+    padding: 35px;
+
+    background-color: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 14px;
+
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+} */
+
+
+/* Profile image */
+
+/* .profile-photo {
+    width: 250px;
+    height: 300px;
+
+    flex-shrink: 0;
+
+    background-color: #e5e7eb;
+    border-radius: 10px;
+
+    overflow: hidden;
+} */
+
+/* .profile-photo img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+} */
+
+/* .profile-photo .photo-placeholder {
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: #6b7280;
+    font-size: 15px;
+} */
+
+
+/* Main information */
+
+/* .profile-main {
+    flex: 1;
+    padding-top: 10px;
+} */
+
+/* .profile-main h1 {
+    margin: 0 0 12px;
+
+    font-size: 32px;
+    color: #111827;
+} */
+
+/* .profile-designation {
+    margin-bottom: 25px;
+
+    color: #4B6587;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 1.5;
+} */
+
+/* .profile-main p {
+    margin: 12px 0;
+
+    color: #4b5563;
+    line-height: 1.5;
+} */
+
+/* .profile-main strong {
+    color: #1f2937;
+} */
+
+
+/* Information sections */
+
+/* .leader-section {
+    margin-top: 30px;
+    padding: 30px 35px;
+
+    background-color: #ffffff;
+
+    border: 1px solid #e5e7eb;
+    border-radius: 14px;
+
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+} */
+
+/* .leader-section h2 {
+    margin: 0 0 20px;
+
+    font-size: 21px;
+    color: #1f2937;
+
+    border-bottom: 1px solid #e5e7eb;
+    padding-bottom: 12px;
+} */
+
+
+/* Lists */
+
+/* .leader-section ul {
+    margin: 0;
+    padding-left: 22px;
+}
+
+.leader-section li {
+    margin-bottom: 12px;
+
+    color: #4b5563;
+    line-height: 1.6;
+}
+
+.leader-section li:last-child {
+    margin-bottom: 0;
+} */
+
+
+/* Sources */
+
+/* .leader-sources {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.leader-sources a {
+    display: inline-block;
+
+    padding: 9px 15px;
+
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+
+    color: #4B6587;
+    text-decoration: none;
+
+    font-size: 14px;
+    font-weight: 500;
+
+    transition:
+        background-color 0.2s ease,
+        color 0.2s ease;
+}
+
+.leader-sources a:hover {
+    background-color: #4B6587;
+    color: white;
+}
+ */
+
+/* Loading / error text */
+
+/* .leader-details > p {
+    text-align: center;
+    color: #6b7280;
+    padding: 40px;
+} */
+
+
+/* Responsive design */
+
+/* @media (max-width: 768px) {
+
+    .leader-details {
+        padding: 30px 20px 50px;
+    }
+
+    .leader-profile {
+        flex-direction: column;
+        align-items: center;
+        gap: 25px;
+        padding: 25px;
+    }
+
+    .profile-photo {
+        width: 210px;
+        height: 250px;
+    }
+
+    .profile-main {
+        width: 100%;
+        text-align: center;
+    }
+
+    .profile-main h1 {
+        font-size: 26px;
+    }
+
+    .profile-designation {
+        font-size: 16px;
+    }
+
+    .leader-section {
+        padding: 25px;
+    }
+}
+
+
+@media (max-width: 480px) {
+
+    .leader-details {
+        padding: 25px 15px 40px;
+    }
+
+    .leader-profile {
+        padding: 20px;
+    }
+
+    .profile-photo {
+        width: 180px;
+        height: 220px;
+    }
+
+    .profile-main h1 {
+        font-size: 23px;
+    }
+
+    .leader-section {
+        padding: 20px;
+    }
+
+    .leader-section h2 {
+        font-size: 19px;
+    }
+
+    .leader-sources {
+        flex-direction: column;
+    }
+
+    .leader-sources a {
+        text-align: center;
+    }
+} */
