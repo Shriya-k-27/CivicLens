@@ -1,5 +1,5 @@
 import { createContext,useContext,useEffect,useReducer } from "react"
-import api from '../api/axios'
+import api, {setAuthToken} from '../api/axios'
 
 const AuthContext=createContext(null);
 
@@ -37,14 +37,15 @@ export function AuthProvider({children}){
         async function checkAuth(){
             try{
                 const refreshResponse=await api.post('/auth/refresh',{})
-
                 const accessToken=refreshResponse.data.accessToken;
                 
-                const meResponse=await api.get('/auth/me',
-                    {
-                        headers:{Authorization: `Bearer ${accessToken}`},
-                    }
-                )
+                // const meResponse=await api.get('/auth/me',
+                //     {
+                //         headers:{Authorization: `Bearer ${accessToken}`},
+                //     }
+                // )
+                setAuthToken(accessToken);
+                const meResponse=await api.get('/auth/me');
 
                 dispatch(
                     {
@@ -68,6 +69,8 @@ export function AuthProvider({children}){
     )
     const {user,accessToken}=response.data;
 
+    setAuthToken(accessToken);
+
     dispatch({type:'LOGIN_SUCCESS',
         payload:{user,accessToken}
     })
@@ -77,6 +80,7 @@ async function logout(){
     try{
         await api.post('/auth/logout',{},{withCredentials:true})
     }finally{
+        setAuthToken(null);
         dispatch({type:'LOGOUT'})
     }
     
@@ -90,7 +94,6 @@ async function logout(){
         </AuthContext.Provider>
     )
 }
-
 
 export function useAuth(){
     return useContext(AuthContext);

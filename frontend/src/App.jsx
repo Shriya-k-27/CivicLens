@@ -4,6 +4,9 @@ import Dashboard from './Components/Dashboard'
 import './App.css'
 import RegisterForm from './Components/RegisterForm'
 import LoginForm from './Components/LoginForm'
+import ModuleList from './Components/ModuleList'
+import LessonList from './Components/LessonList'
+import LessonDetail from './Components/LessonDetail'
 
 function App() {
 
@@ -13,6 +16,9 @@ function App() {
       <Route path="/login" element={<LoginForm/>}/>
       <Route path="/register" element={<RegisterForm/>}/>
       <Route path="/dashboard" element={<ProtectedRoute><Dashboard/></ProtectedRoute>}/>
+      <Route path="/academy" element={<ProtectedRoute><ModuleList/></ProtectedRoute>}/>
+      <Route path="/academy/:moduleId" element={<ProtectedRoute><LessonList/></ProtectedRoute>}/>
+      <Route path="/academy/lesson/:lessonId" element={<ProtectedRoute><LessonDetail/></ProtectedRoute>}/>
     </Routes>
     </>
   )
