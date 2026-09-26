@@ -2,7 +2,7 @@ import express from "express";
 import civicUpdateRoutes from "./routes/civicUpdateRoutes.js";
 import newsRoutes from "./routes/newsRoutes.js";
 import cors from "cors";
-import leaderRoutes from "./routes/leaderRoutes.js"
+import leaderRoutes from "./routes/leaderRoutes.mjs"
 
 const app = express();
 

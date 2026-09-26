@@ -20,7 +20,7 @@ const leaderSchema = new mongoose.Schema(
             ]
         },
         designation:{
-            type:String,
+            type:[String],
             required:true,
             trim:true
         },
@@ -36,10 +36,10 @@ const leaderSchema = new mongoose.Schema(
             type:String,
         },
         education:{
-            type: String,
+            type: [String]
         },
         dateOfBirth:{
-            type:String
+            type:Date
         },
         responsibilities:{
             type:[String]
@@ -47,14 +47,11 @@ const leaderSchema = new mongoose.Schema(
         previousPositions:{
             type:[String],
         },
-        officialGovernmentProfile:{
-            type:String
-        },
         sourceLinks:[
             {
                 title:{
                     type:String,
-                    rrequired:true
+                    required:true
                 },
                 url:{
                     type:String,
