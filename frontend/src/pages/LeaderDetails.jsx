@@ -61,7 +61,7 @@ function LeaderDetails() {
 
             <div className="leader-profile">
 
-                <div className="profile-photo">
+                {/* <div className="profile-photo">
 
                     {leader.photo ? (
                         <img
@@ -74,7 +74,7 @@ function LeaderDetails() {
                         </div>
                     )}
 
-                </div>
+                </div> */}
 
                 <div className="profile-main">
 
