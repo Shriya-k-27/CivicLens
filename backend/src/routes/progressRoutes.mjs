@@ -2,6 +2,7 @@ import express from 'express';
 import Lesson from '../models/Lesson.mjs';
 import UserProgress from '../models/UserProgress.mjs';
 import { protect } from '../middleware/auth.mjs';
+import User from '../models/User.mjs';
 
 const progressRouter=express.Router();
 
@@ -17,14 +18,15 @@ progressRouter.get('/stats',protect,async (req,res)=>{
             completed:true
         });
 
-        const percentage=totalLessons===0
-            ? 0
-            : Math.round((completedCount/totalLessons)*100);
+        const percentage=totalLessons===0 ? 0 : Math.round((completedCount/totalLessons)*100);
+
+        const user = await User.findById(userId).select('badges')
 
         return res.status(200).json({
             completedCount,
             totalLessons,
-            percentage
+            percentage,
+            badges: user? user.badges : []
         });
 
     }catch(err){
