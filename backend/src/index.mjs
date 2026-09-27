@@ -5,6 +5,7 @@ import connectDB from "./db.mjs";
 import authRouter from "./routes/authRoutes.mjs"
 import moduleRouter from "./routes/moduleRoutes.mjs"
 import lessonRouter from "./routes/lessonRoutes.mjs";
+import progressRouter from './routes/progressRoutes.mjs';
 import cookieParser from 'cookie-parser'
 import path from 'path';
 import { fileURLToPath } from 'url';
@@ -42,6 +43,7 @@ app.get('/api/health',(req,res)=>{
 app.use('/api/auth', authRouter)
 app.use('/api/modules',moduleRouter)
 app.use('/api/lessons',lessonRouter)
+app.use('/api/progress', progressRouter);
 
 app.all('/*splat',(req,res)=>{
     res.status(404).json({
