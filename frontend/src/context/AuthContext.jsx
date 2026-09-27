@@ -39,11 +39,6 @@ export function AuthProvider({children}){
                 const refreshResponse=await api.post('/auth/refresh',{})
                 const accessToken=refreshResponse.data.accessToken;
                 
-                // const meResponse=await api.get('/auth/me',
-                //     {
-                //         headers:{Authorization: `Bearer ${accessToken}`},
-                //     }
-                // )
                 setAuthToken(accessToken);
                 const meResponse=await api.get('/auth/me');
 

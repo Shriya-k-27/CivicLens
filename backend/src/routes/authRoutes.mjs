@@ -153,10 +153,33 @@ authRouter.post('/logout',(req,res)=>{
     return res.status(200).json({message:"logged out successfully"})
 })
 
-authRouter.get("/me", protect, (req, res) => {
-  return res.status(200).json({
-    user: req.user,
-  });
+authRouter.get('/me',protect,async(req,res)=>{
+    try{
+        const user=await User.findById(req.user.userId)
+            .select('email role createdAt streakCount badges');
+
+        if(!user){
+            return res.status(404).json({
+                message:'User not found'
+            });
+        }
+
+        return res.status(200).json({
+            user
+        });
+
+    }catch(err){
+        console.log('Get me error:',err);
+
+        return res.status(500).json({
+            message:'Server error'
+        });
+    }
 });
+// authRouter.get("/me", protect, (req, res) => {
+//   return res.status(200).json({
+//     user: req.user,
+//   });
+// });
 
 export default authRouter

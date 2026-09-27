@@ -44,6 +44,8 @@ function Dashboard(){
         <br/>
         <Link to="/academy">Civic Academy</Link>
         <br/>
+        <Link to="/profile">Profile</Link>
+        <br/>
         <button onClick={logout}>Logout</button>
         </div>
     )
