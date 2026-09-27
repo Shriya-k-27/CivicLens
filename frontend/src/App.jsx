@@ -12,6 +12,7 @@ import Profile from './Components/Profile'
 import AdminRoute from './Components/AdminRoute'
 import AdminHome from './Components/AdminHome'
 import AdminModules from './Components/AdminModules'
+import AdminLessons from './Components/AdminLessons';
 
 function App() {
 
@@ -25,6 +26,7 @@ function App() {
 
       <Route path="/admin" element={<AdminRoute><AdminHome/></AdminRoute>}/>
       <Route path="/admin/modules" element={<AdminRoute><AdminModules/></AdminRoute>}/>
+      <Route path="/admin/lessons" element={<AdminRoute><AdminLessons/></AdminRoute>}/>
 
       <Route path="/academy" element={<ProtectedRoute><ModuleList/></ProtectedRoute>}/>
       <Route path="/academy/:moduleId" element={<ProtectedRoute><LessonList/></ProtectedRoute>}/>
