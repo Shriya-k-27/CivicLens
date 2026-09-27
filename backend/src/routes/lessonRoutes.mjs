@@ -1,5 +1,7 @@
 import express from 'express'
+import mongoose from 'mongoose'
 import Module from '../models/Module.mjs'
+import UserProgress from '../models/UserProgress.mjs'
 import Lesson from '../models/Lesson.mjs';
 import { protect, requireAdmin } from '../middleware/auth.mjs';
 
@@ -81,6 +83,32 @@ lessonRouter.delete('/:id', protect, requireAdmin, async (req,res)=>{
     }catch(err){
         console.log('Delete lesson error',err)
         return res.status(500).json({message:'Internal server error'})
+    }
+})
+
+//POST /api/lessons/:lessonId/complete
+lessonRouter.post('/:lessonId/complete', protect, async (req,res)=>{
+    try{
+        const {lessonId} = req.params;
+        const {userId}=req.user;
+        
+        if(!mongoose.Types.ObjectId.isValid(lessonId)){
+            return res.status(400).json({message:"Invalid lesson ID"})
+        }
+
+        const lesson=await Lesson.findById(lessonId)
+        if(!lesson){
+            return res.status(404).json({message:"Lesson not foundt"})
+        }
+
+        const progress = await UserProgress.findOneAndUpdate(
+            {userId,lessonId},{completed:true,completedAt:new Date()},
+            {upsert:true,new:true,setDefaultsOnInsert:true}
+        )
+        return res.status(200).json({message:'Lesson marked completed',progress})
+}catch(err){
+        console.log('error completing lesson',err)
+        return res.status(500).json({message:'server error'})
     }
 })
 
