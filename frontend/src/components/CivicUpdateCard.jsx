@@ -1,3 +1,5 @@
+import Comments from "./Comments";
+
 function CivicUpdateCard({ update }) {
     return (
         <article className="update-card">
@@ -29,6 +31,7 @@ function CivicUpdateCard({ update }) {
                 Read article
             </a>
 
+            <Comments updateId={update._id} />
         </article>
     );
 }

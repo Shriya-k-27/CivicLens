@@ -3,6 +3,7 @@ import civicUpdateRoutes from "./routes/civicUpdateRoutes.js";
 import newsRoutes from "./routes/newsRoutes.js";
 import leaderRoutes from "./routes/leaderRoutes.mjs";
 import authRoutes from "./routes/authRoutes.mjs";
+import commentRoutes from "./routes/commentRoutes.mjs";
 
 import cors from "cors";
 import cookieParser from "cookie-parser";
@@ -19,6 +20,7 @@ app.use(
 app.use(express.json());
 app.use(cookieParser());
 
+app.use("/api/comments", commentRoutes);
 app.use("/api/news", newsRoutes);
 
 app.get("/", (req, res) => {

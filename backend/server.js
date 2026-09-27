@@ -1,4 +1,4 @@
-import app from './app.js';
+import app from './app.mjs';
 import connectDB from "./config/db.js";
 import dns from "node:dns/promises";
 import "./jobs/newsJob.js";
