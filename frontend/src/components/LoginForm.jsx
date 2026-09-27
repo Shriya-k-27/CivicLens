@@ -20,7 +20,7 @@ function LoginForm() {
             const user=await login(email,password)
             console.log(user);
             console.log("Login successful!")
-            navigate('/dashboard')
+            navigate('/profile')
             
         }catch(err){
             console.log(err.response?.data || err.message);

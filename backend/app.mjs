@@ -4,6 +4,9 @@ import newsRoutes from "./routes/newsRoutes.js";
 import leaderRoutes from "./routes/leaderRoutes.mjs";
 import authRoutes from "./routes/authRoutes.mjs";
 import commentRoutes from "./routes/commentRoutes.mjs";
+import progressRoutes from "./routes/progressRoutes.mjs";
+import moduleRoutes from "./routes/moduleRoutes.mjs";
+import lessonRoutes from "./routes/lessonRoutes.mjs";
 
 import cors from "cors";
 import cookieParser from "cookie-parser";
@@ -20,17 +23,19 @@ app.use(
 app.use(express.json());
 app.use(cookieParser());
 
-app.use("/api/comments", commentRoutes);
 app.use("/api/news", newsRoutes);
+
 
 app.get("/", (req, res) => {
     res.send("CivicLens backend is running!");
 });
 
 app.use("/api/auth", authRoutes);
-
 app.use("/api/civic-updates", civicUpdateRoutes);
-
 app.use("/api/leaders", leaderRoutes);
+app.use("/api/comments", commentRoutes);
+app.use("/api/progress", progressRoutes);
+app.use("/api/modules", moduleRoutes);
+app.use("/api/lessons", lessonRoutes);
 
 export default app;
