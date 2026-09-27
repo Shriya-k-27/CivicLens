@@ -32,6 +32,7 @@ function authReducer(state,action){
 export function AuthProvider({children}){
 
     const[state,dispatch]=useReducer(authReducer,initialState)
+    console.log('Current authenticated user:', state.user);
 
     useEffect(()=>{
         async function checkAuth(){

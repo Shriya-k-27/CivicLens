@@ -9,6 +9,10 @@ import LessonList from './Components/LessonList'
 import LessonDetail from './Components/LessonDetail'
 import Profile from './Components/Profile'
 
+import AdminRoute from './Components/AdminRoute'
+import AdminHome from './Components/AdminHome'
+import AdminModules from './Components/AdminModules'
+
 function App() {
 
   return (
@@ -18,6 +22,10 @@ function App() {
       <Route path="/register" element={<RegisterForm/>}/>
       <Route path="/dashboard" element={<ProtectedRoute><Dashboard/></ProtectedRoute>}/>
       <Route path="/profile" element={<ProtectedRoute><Profile/></ProtectedRoute>}/>
+
+      <Route path="/admin" element={<AdminRoute><AdminHome/></AdminRoute>}/>
+      <Route path="/admin/modules" element={<AdminRoute><AdminModules/></AdminRoute>}/>
+
       <Route path="/academy" element={<ProtectedRoute><ModuleList/></ProtectedRoute>}/>
       <Route path="/academy/:moduleId" element={<ProtectedRoute><LessonList/></ProtectedRoute>}/>
       <Route path="/academy/lesson/:lessonId" element={<ProtectedRoute><LessonDetail/></ProtectedRoute>}/>

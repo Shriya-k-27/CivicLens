@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import api from '../api/axios';
 
 function Dashboard(){
-    const {logout}=useAuth();
+    const {user,logout}=useAuth();
 
     const [stats, setStats]=useState(null);
     const [loading, setLoading]=useState(true);
@@ -46,6 +46,10 @@ function Dashboard(){
         <br/>
         <Link to="/profile">Profile</Link>
         <br/>
+        {user?.role==='admin' && 
+        (<>
+        <Link to="/admin">Admin</Link>
+        <br/></>)}
         <button onClick={logout}>Logout</button>
         </div>
     )
