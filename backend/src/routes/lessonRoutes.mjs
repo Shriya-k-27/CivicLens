@@ -6,6 +6,7 @@ import Lesson from '../models/Lesson.mjs';
 import { protect, requireAdmin } from '../middleware/auth.mjs';
 import User from '../models/User.mjs';
 import { updateStreak } from '../utils/streak.mjs';
+import { updateBadges } from '../utils/badges.mjs';
 
 const lessonRouter=express.Router();
 
@@ -131,12 +132,20 @@ lessonRouter.post('/:lessonId/complete',protect,async(req,res)=>{
             }
         );
 
+        const completedCount=await UserProgress.countDocuments({
+            userId,
+            completed:true
+        });
+
+        updateBadges(user,completedCount);
+
         await user.save();
 
         return res.status(200).json({
             message:'Lesson marked completed',
             progress,
-            streakCount:user.streakCount
+            streakCount:user.streakCount,
+            badges:user.badges
         });
 
     }catch(err){
