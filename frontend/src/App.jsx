@@ -17,6 +17,7 @@ import AdminDashboard from "./components/AdminDashboard.jsx";
 import AdminHome from "./components/AdminHome.jsx";
 import AdminModules from "./components/AdminModules.jsx";
 import AdminLessons from "./components/AdminLessons.jsx";
+import Profile from "./components/Profile.jsx";
 
 import "./App.css";
 
@@ -94,10 +95,19 @@ function App() {
         />
 
         <Route
-          path="/profile"
+          path="/dashboard"
           element={
             <ProtectedRoute>
               <Dashboard />
+            </ProtectedRoute>
+          }
+        />
+
+        <Route
+          path="/profile"
+          element={
+            <ProtectedRoute>
+              <Profile />
             </ProtectedRoute>
           }
         />

@@ -36,7 +36,7 @@ function Navbar() {
                         </li>
 
                         <li>
-                            <Link to="/profile" className="profile-icon">
+                            <Link to="/dashboard" className="profile-icon">
                                 <img
                                     src={profileimg}
                                     alt="Profile"
